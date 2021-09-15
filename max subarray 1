@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   int t ;
+   cin >> t ;
+   while(t--)
+   {
+       int n , k , sum = 0 , maxans = -1;
+       cin >> n >> k ;
+       vector <int> v;
+       for(int i = 0 ; i < n ; ++i)
+       {
+           int a ;
+           cin >> a;
+           v.push_back(a);
+       }
+      // for(int i = 0 ; i < n ; ++i)
+      //    cout << v[i] << " ";
+       int i = 0 ;
+       int j = i+k-1;
+       for(int s = 0 ; s <= j ; ++s)
+       sum += v[s];
+     // cout << sum << endl;
+
+       while(j != n)
+       {
+           maxans = max(sum,maxans);
+           sum -= v[i];
+           i++;
+           j++;
+           sum += v[j];
+       }
+       cout << maxans << endl;
+   }
+}
